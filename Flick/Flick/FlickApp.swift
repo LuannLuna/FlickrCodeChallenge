@@ -11,7 +11,7 @@ import SwiftUI
 struct FlickApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView(viewModel: HomeViewViewModel())
         }
     }
 }

@@ -8,17 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		A40004142BB1F98700E061C3 /* FlickApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40004132BB1F98700E061C3 /* FlickApp.swift */; };
-		A40004162BB1F98700E061C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40004152BB1F98700E061C3 /* ContentView.swift */; };
+		A40004162BB1F98700E061C3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40004152BB1F98700E061C3 /* HomeView.swift */; };
 		A40004182BB1F98900E061C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A40004172BB1F98900E061C3 /* Assets.xcassets */; };
 		A400041B2BB1F98900E061C3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A400041A2BB1F98900E061C3 /* Preview Assets.xcassets */; };
+		A40004232BB1FA2A00E061C3 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40004222BB1FA2A00E061C3 /* Service.swift */; };
+		A40004272BB202BC00E061C3 /* HomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40004262BB202BC00E061C3 /* HomeViewViewModel.swift */; };
+		A400042A2BB2034D00E061C3 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40004292BB2034D00E061C3 /* Configurable.swift */; };
+		A400042D2BB2048700E061C3 /* Flickr.swift in Sources */ = {isa = PBXBuildFile; fileRef = A400042C2BB2048700E061C3 /* Flickr.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A40004102BB1F98700E061C3 /* Flick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A40004132BB1F98700E061C3 /* FlickApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickApp.swift; sourceTree = "<group>"; };
-		A40004152BB1F98700E061C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A40004152BB1F98700E061C3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A40004172BB1F98900E061C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A400041A2BB1F98900E061C3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A40004222BB1FA2A00E061C3 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		A40004262BB202BC00E061C3 /* HomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewViewModel.swift; sourceTree = "<group>"; };
+		A40004292BB2034D00E061C3 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
+		A400042C2BB2048700E061C3 /* Flickr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flickr.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +59,12 @@
 		A40004122BB1F98700E061C3 /* Flick */ = {
 			isa = PBXGroup;
 			children = (
+				A400042B2BB2047F00E061C3 /* Model */,
+				A40004282BB2032B00E061C3 /* Protocols */,
+				A40004242BB2029700E061C3 /* ViewModel */,
+				A40004212BB1FA1F00E061C3 /* Service */,
 				A40004132BB1F98700E061C3 /* FlickApp.swift */,
-				A40004152BB1F98700E061C3 /* ContentView.swift */,
+				A40004252BB202AA00E061C3 /* View */,
 				A40004172BB1F98900E061C3 /* Assets.xcassets */,
 				A40004192BB1F98900E061C3 /* Preview Content */,
 			);
@@ -65,6 +77,46 @@
 				A400041A2BB1F98900E061C3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A40004212BB1FA1F00E061C3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A40004222BB1FA2A00E061C3 /* Service.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A40004242BB2029700E061C3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A40004262BB202BC00E061C3 /* HomeViewViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A40004252BB202AA00E061C3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A40004152BB1F98700E061C3 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A40004282BB2032B00E061C3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A40004292BB2034D00E061C3 /* Configurable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A400042B2BB2047F00E061C3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A400042C2BB2048700E061C3 /* Flickr.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +189,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A40004162BB1F98700E061C3 /* ContentView.swift in Sources */,
+				A400042A2BB2034D00E061C3 /* Configurable.swift in Sources */,
+				A40004162BB1F98700E061C3 /* HomeView.swift in Sources */,
 				A40004142BB1F98700E061C3 /* FlickApp.swift in Sources */,
+				A40004272BB202BC00E061C3 /* HomeViewViewModel.swift in Sources */,
+				A400042D2BB2048700E061C3 /* Flickr.swift in Sources */,
+				A40004232BB1FA2A00E061C3 /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
