@@ -9,4 +9,10 @@ import Foundation
 
 final class HomeViewViewModel: ObservableObject {
     var searchText = ""
+
+    let client: FlickService
+
+    init(client: FlickService) {
+        self.client = client
+    }
 }

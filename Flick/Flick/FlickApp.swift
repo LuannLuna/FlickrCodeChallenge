@@ -11,7 +11,8 @@ import SwiftUI
 struct FlickApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView(viewModel: HomeViewViewModel())
+            let viewModel = HomeViewViewModel(client: FlickService(client: URLSession.shared))
+            return HomeView(viewModel: viewModel)
         }
     }
 }

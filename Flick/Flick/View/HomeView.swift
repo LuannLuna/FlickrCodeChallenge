@@ -21,5 +21,9 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(viewModel: HomeViewViewModel())
+    HomeView(
+        viewModel: HomeViewViewModel(
+            client: FlickService(client: URLSession.shared)
+        )
+    )
 }
