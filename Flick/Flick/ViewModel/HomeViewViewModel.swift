@@ -8,11 +8,25 @@
 import Foundation
 
 final class HomeViewViewModel: ObservableObject {
-    var searchText = ""
-
+    @Published var searchText = ""
+    @Published var thumbs: [Thumb] = []
     let client: FlickService
 
     init(client: FlickService) {
         self.client = client
+    }
+
+    func fetchThumbs() {
+        let words = searchText.split(separator: " ").map(String.init)
+        client.fetchThumbnail(words: words) { result in
+            switch result {
+                case let .success(response):
+                    DispatchQueue.main.async { [weak self] in
+                        self?.thumbs = response
+                    }
+                case let .failure(failure):
+                    print(failure)
+            }
+        }
     }
 }

@@ -9,11 +9,17 @@ import SwiftUI
 
 struct HomeView: View {
 
-    @StateObject var viewModel: HomeViewViewModel
+    @ObservedObject var viewModel: HomeViewViewModel
 
     var body: some View {
         VStack {
             TextField("Search...", text: $viewModel.searchText)
+                .onChange(of: viewModel.searchText) {
+                    viewModel.fetchThumbs()
+                }
+            List(viewModel.thumbs, id: \.id) { thumb in
+                AsyncImage(url: URL(string: thumb.media.m))
+            }
             Spacer()
         }
         .padding()
