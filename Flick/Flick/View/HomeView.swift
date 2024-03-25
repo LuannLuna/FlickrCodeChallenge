@@ -15,12 +15,14 @@ struct HomeView: View {
 
         var image: Image {
             let systemName = switch self {
-                case .one:
-                "rectangle.grid.1x2"
-                case .two:
+            case .one:
                 "rectangle.grid.2x2"
-                case .three:
+
+            case .two:
                 "rectangle.grid.3x2"
+
+            case .three:
+                "rectangle.grid.1x2"
             }
             return Image(systemName: systemName)
         }
