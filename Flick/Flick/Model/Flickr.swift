@@ -18,8 +18,7 @@ struct FlickrResponse: Codable {
 }
 
 // MARK: - Item
-struct Thumb: Codable, Identifiable {
-    let id = UUID()
+struct Thumb: Codable {
     let title: String
     let link: String
     let media: Media

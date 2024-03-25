@@ -9,7 +9,7 @@ import Foundation
 
 final class HomeViewViewModel: ObservableObject {
     @Published var searchText = ""
-    @Published var thumbs: [Thumb] = []
+    @Published var thumbs: [ThumbViewModel] = []
     let client: FlickService
 
     init(client: FlickService) {
@@ -22,7 +22,7 @@ final class HomeViewViewModel: ObservableObject {
             switch result {
                 case let .success(response):
                     DispatchQueue.main.async { [weak self] in
-                        self?.thumbs = response
+                        self?.thumbs = response.map(ThumbViewModel.init)
                     }
                 case let .failure(failure):
                     print(failure)
@@ -32,12 +32,10 @@ final class HomeViewViewModel: ObservableObject {
 }
 
 #if DEBUG
-
 extension HomeViewViewModel {
     convenience init(searchText: String = "", client: FlickService) {
         self.init(client: client)
         self.searchText = searchText
     }
 }
-
 #endif

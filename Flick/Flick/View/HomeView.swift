@@ -59,7 +59,7 @@ struct HomeView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(viewModel.thumbs, id: \.id) { thumb in
-                        AsyncImage(url: URL(string: thumb.media.m))
+                        AsyncImage(url: thumb.url)
                             .scaledToFit()
                             .frame(width: width, alignment: .center)
                             .clipped()
