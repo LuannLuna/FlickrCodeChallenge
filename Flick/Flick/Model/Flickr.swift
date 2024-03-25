@@ -12,19 +12,20 @@ struct FlickrResponse: Codable {
     let title: String
     let link: String
     let description: String
-    let modified: Date
+    let modified: String
     let generator: String
     let items: [Thumb]
 }
 
 // MARK: - Item
-struct Thumb: Codable {
+struct Thumb: Codable, Identifiable {
+    let id = UUID()
     let title: String
     let link: String
     let media: Media
-    let dateTaken: Date
+    let dateTaken: String
     let description: String
-    let published: Date
+    let published: String
     let author, authorID, tags: String
 
     enum CodingKeys: String, CodingKey {
