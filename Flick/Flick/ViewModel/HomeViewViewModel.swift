@@ -30,3 +30,14 @@ final class HomeViewViewModel: ObservableObject {
         }
     }
 }
+
+#if DEBUG
+
+extension HomeViewViewModel {
+    convenience init(searchText: String = "", client: FlickService) {
+        self.init(client: client)
+        self.searchText = searchText
+    }
+}
+
+#endif

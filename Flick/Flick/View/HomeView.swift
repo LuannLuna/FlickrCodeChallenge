@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    private
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
 
     @ObservedObject var viewModel: HomeViewViewModel
 
@@ -17,18 +23,31 @@ struct HomeView: View {
                 .onChange(of: viewModel.searchText) {
                     viewModel.fetchThumbs()
                 }
-            List(viewModel.thumbs, id: \.id) { thumb in
-                AsyncImage(url: URL(string: thumb.media.m))
+            ScrollView(.vertical, showsIndicators: false) {
+                LazyVGrid(columns: columns, spacing: 10) {
+                    ForEach(viewModel.thumbs, id: \.id) { thumb in
+                        AsyncImage(url: URL(string: thumb.media.m))
+                            .scaledToFit()
+                            .frame(width: 150)
+                            .clipped()
+                            .cornerRadius(10)
+                    }
+                }
             }
-            Spacer()
         }
         .padding()
+        #if DEBUG
+        .onAppear {
+            viewModel.fetchThumbs()
+        }
+        #endif
     }
 }
 
 #Preview {
     HomeView(
         viewModel: HomeViewViewModel(
+            searchText: "Star",
             client: FlickService(client: URLSession.shared)
         )
     )
